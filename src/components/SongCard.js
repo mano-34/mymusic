@@ -7,7 +7,7 @@ function SongCard({ song, playSong }) {
       <img src={song.cover} alt={song.title} className="cover" />
       <h3>{song.title}</h3>
       <p>{song.artist}</p>
-      <button onClick={playSong}>▶ Play</button>
+      <button onClick={playSong}>▶ </button>
     </div>
   );
 }
