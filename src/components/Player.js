@@ -6,16 +6,36 @@ function Player({ songs, currentIndex, setCurrentIndex }) {
   const [isPlaying, setIsPlaying] = useState(true);
 
   useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.load();
-      audioRef.current.play();
-      setIsPlaying(true);
+    const audio = audioRef.current;
+    if (audio) {
+      audio.load();
+
+      const handleCanPlay = () => {
+        audio.play().catch((err) =>
+          console.log("Play prevented by browser:", err)
+        );
+        setIsPlaying(true);
+      };
+
+      audio.addEventListener("canplay", handleCanPlay);
+
+      return () => {
+        audio.removeEventListener("canplay", handleCanPlay);
+      };
     }
   }, [currentIndex]);
 
   const togglePlayPause = () => {
-    if (isPlaying) audioRef.current.pause();
-    else audioRef.current.play();
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (isPlaying) {
+      audio.pause();
+    } else {
+      audio.play().catch((err) =>
+        console.log("Play prevented by browser:", err)
+      );
+    }
     setIsPlaying(!isPlaying);
   };
 
@@ -44,4 +64,3 @@ function Player({ songs, currentIndex, setCurrentIndex }) {
 }
 
 export default Player;
-
