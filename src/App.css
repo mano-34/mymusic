@@ -48,11 +48,11 @@ nav ul {
 nav ul li a {
   text-decoration: none;
   font-weight: 600;
-  color: #111;
+  color: #555;
   transition: color 0.3s ease;
 
   &:hover {
-    color: #666;
+    color: #222;
     text-decoration: underline;
   }
 }
@@ -122,6 +122,7 @@ nav ul li a {
   margin-top: -40px;
   &:active{
     color: transparent;
+   
    
   }
 }
@@ -203,6 +204,20 @@ nav ul li a {
   background: white;
   color: #111;
 }
+.librarybtn {
+  position: absolute;
+  margin-top: auto;
+  bottom: 30%;
+  padding: 15px 18px;
+  border: none;
+  border-radius: 100%;
+  background: rebeccapurple;
+  color: white;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: background 0.3s;
+}
 
 /* player */
 
@@ -280,5 +295,6 @@ nav ul li a {
 
   .menu-toggle {
     display: block;
+ 
   }
 }

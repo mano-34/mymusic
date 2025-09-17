@@ -1,7 +1,6 @@
-
 import React, { useRef, useEffect, useState } from "react";
 
-function Player({ songs, currentIndex, setCurrentIndex }) {
+function Player({ songs, currentIndex, setCurrentIndex, addToLibrary }) {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
 
@@ -58,9 +57,14 @@ function Player({ songs, currentIndex, setCurrentIndex }) {
         <button onClick={playPrev}>⏮</button>
         <button onClick={togglePlayPause}>{isPlaying ? "⏸" : "▶"}</button>
         <button onClick={playNext}>⏭</button>
+       
+        <button onClick={() => addToLibrary(songs[currentIndex])}>
+          ❤️</button>
       </div>
     </div>
   );
 }
 
 export default Player;
+
+

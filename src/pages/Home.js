@@ -31,9 +31,7 @@ import neesingam from "../assets/audio/neesingam.mp3";
 import thalaivan from "../assets/audio/thalaivan.mp3";
 import madharasi from "../assets/audio/madharasi.mp3";
 
-
 function Home() {
-
   const [songs] = useState([
     { id: 1, title: "vaa vaa pakkam vaa", artist: "DJ Gowtham", url: vaavaa, cover: vaaCover },
     { id: 2, title: "Monica", artist: "Anirudh", url: monica, cover: monicaImg },
@@ -49,24 +47,46 @@ function Home() {
     { id: 12, title: "Madharasi", artist: "AR.Rahman", url: madharasi, cover: madharasiImg },
   ]);
 
-
   const [currentIndex, setCurrentIndex] = useState(null);
 
   const playSong = (index) => setCurrentIndex(index);
+
+  const addToLibrary = (song) => {
+    let library = JSON.parse(localStorage.getItem("library")) || [];
+
+    if (!library.find((item) => item.id === song.id)) {
+      library.push(song);
+      localStorage.setItem("library", JSON.stringify(library));
+      alert(`${song.title} added to your Library 🎶`);
+    } else {
+      alert("Already in Library");
+    }
+  };
 
   return (
     <div className="home">
       <h2>🎶 Trending Now</h2>
       <div className="song-list">
         {songs.map((song, index) => (
-          <SongCard key={song.id} song={song} playSong={() => playSong(index)} />
+          <SongCard
+            key={song.id}
+            song={song}
+            playSong={() => playSong(index)}
+            addToLibrary={addToLibrary}
+          />
         ))}
       </div>
       {currentIndex !== null && (
-        <Player songs={songs} currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
+        <Player
+          songs={songs}
+          currentIndex={currentIndex}
+          setCurrentIndex={setCurrentIndex}
+          addToLibrary={addToLibrary}   
+        />
       )}
     </div>
   );
 }
 
 export default Home;
+

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function SongCard({ song, playSong }) {
+function SongCard({ song, playSong, }) {
   const [isPlaying, setIsPlaying] = useState(false);
 
   const handlePlay = () => {
