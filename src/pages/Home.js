@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import SongCard from "../components/SongCard";
 import Player from "../components/Player";
@@ -31,7 +30,8 @@ import neesingam from "../assets/audio/neesingam.mp3";
 import thalaivan from "../assets/audio/thalaivan.mp3";
 import madharasi from "../assets/audio/madharasi.mp3";
 
-function Home() {
+
+function Home({ searchTerm = "" }) {
   const [songs] = useState([
     { id: 1, title: "vaa vaa pakkam vaa", artist: "DJ Gowtham", url: vaavaa, cover: vaaCover },
     { id: 2, title: "Monica", artist: "Anirudh", url: monica, cover: monicaImg },
@@ -49,6 +49,12 @@ function Home() {
 
   const [currentIndex, setCurrentIndex] = useState(null);
 
+   const filteredSongs = songs.filter(
+    (song) =>
+      song.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      song.artist.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   const playSong = (index) => setCurrentIndex(index);
 
   const addToLibrary = (song) => {
@@ -65,23 +71,28 @@ function Home() {
 
   return (
     <div className="home">
-      <h2>🎶 Trending Now</h2>
+      <h3>🎶 Trending Now</h3>
       <div className="song-list">
-        {songs.map((song, index) => (
-          <SongCard
-            key={song.id}
-            song={song}
-            playSong={() => playSong(index)}
-            addToLibrary={addToLibrary}
-          />
-        ))}
+        {filteredSongs.length > 0 ? (
+          filteredSongs.map((song, index) => (
+            <SongCard
+              key={song.id}
+              song={song}
+              playSong={() => setCurrentIndex(index)}
+              addToLibrary={addToLibrary}
+            />
+          ))
+        ) : (
+          <p>No songs found 🎧</p>
+        )}
       </div>
+
       {currentIndex !== null && (
         <Player
-          songs={songs}
+          songs={filteredSongs}
           currentIndex={currentIndex}
           setCurrentIndex={setCurrentIndex}
-          addToLibrary={addToLibrary}   
+          addToLibrary={addToLibrary}
         />
       )}
     </div>
