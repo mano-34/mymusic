@@ -4,13 +4,14 @@ import React from "react";
 function About() {
   return (
     <div className="about">
-      <h2>🎶 About BeatBox</h2>
+      <h2>ⓘ About BeatBox</h2>
+    
       <p>
         BeatBox is a simple music player built with React.js. 
         It lets you search, play, and save your favorite tracks 
         into your own personal library.
       </p>
-
+<hr />
       <div className="about-section">
         <h3>✨ Features</h3>
         <ul>
@@ -21,12 +22,12 @@ function About() {
         </ul>
       </div>
 
-
+<hr />
       <div className="about-section">
         <h3>🚀 Coming Soon</h3>
         <p>Playlists, favorites, dark mode, and more awesome features!</p>
       </div>
-
+<hr />
       <div className="about-section">
         <h3>📬 Contact</h3>
         <p>
@@ -34,7 +35,9 @@ function About() {
       
         </p>
       </div>
+      <hr/>
     </div>
+    
   );
 }
 

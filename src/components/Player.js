@@ -59,7 +59,7 @@ function Player({ songs, currentIndex, setCurrentIndex, addToLibrary }) {
         <button onClick={playNext}>⏭</button>
        
         <button onClick={() => addToLibrary(songs[currentIndex])}>
-          ❤️</button>
+          ❤︎</button>
       </div>
     </div>
   );

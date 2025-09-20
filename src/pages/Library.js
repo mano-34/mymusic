@@ -4,10 +4,10 @@ function Library() {
   const [librarySongs, setLibrarySongs] = useState([]);
   const [currentSong, setCurrentSong] = useState(null);
 
-  useEffect(() => {
-    const savedLibrary = JSON.parse(localStorage.getItem("library")) || [];
-    setLibrarySongs(savedLibrary);
-  }, []);
+ useEffect(() => {
+  const savedLibrary = JSON.parse(localStorage.getItem("library")) || [];
+  setLibrarySongs(savedLibrary);
+}, []);
 
   const playSong = (song) => {
     setCurrentSong(song);
@@ -44,6 +44,7 @@ function Library() {
           ))}
         </div>
       )}
+<hr/>
     </div>
   );
 }

@@ -21,11 +21,18 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
-
-
+  scroll-behavior: smooth;
 }
+
+hr {
+  border: none;
+  border-top: 1px solid #888;
+  margin: 40px 0;
+  
+}
+
 
 /* navbar*/
 nav {
@@ -72,6 +79,11 @@ nav ul li a {
   font-size: 20px;
   font-weight: bold;
   font-style: italic;
+
+  &:hover {
+    color: #222;
+    text-decoration: underline;
+  }
 }
 
 .search-bar {
@@ -134,18 +146,20 @@ nav ul li a {
 }
 
 /* song list home */
+
 .home {
   padding: 70px 20px;
   background: whitesmoke;
 }
 
 .home h3 {
+  margin-top: 10px;
   text-align: center;
- 
   color: #444;
-   &:hover{
+
+  &:hover {
     text-decoration: underline;
-     color: #222;
+    color: #222;
   }
 }
 
@@ -207,6 +221,7 @@ nav ul li a {
   background: white;
   color: #111;
 }
+
 .song-list {
   margin-left: 25px;
   display: flex;
@@ -224,8 +239,7 @@ nav ul li a {
   background: rgb(188, 158, 219);
   border-radius: 10px;
   text-align: center;
-
-  &:active{
+  &:active {
     box-shadow: 1px 1px 9px rebeccapurple;
   }
 
@@ -249,13 +263,14 @@ nav ul li a {
   margin-top: 7%;
 
 }
-.library h4{
+
+.library h4 {
   text-align: center;
-  font-style: italic;
   color: #444;
-  &:hover{
+
+  &:hover {
     text-decoration: underline;
-     color: #222;
+    color: #222;
   }
 }
 
@@ -267,27 +282,31 @@ nav ul li a {
   margin: 7%;
   line-height: 2;
 }
+
 .about p {
-color:#444;
+  color: #444;
 }
+
 .about h2 {
   text-align: center;
   margin-bottom: 15px;
   color: #444;
-  &:hover{
+
+  &:hover {
     text-decoration: underline;
-     color: #222;
+    color: #222;
   }
 }
 
 .about-section {
-  background:white;
+  background: white;
   padding: 15px;
   border-radius: 12px;
   margin: 15px 0;
-   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  &:hover{
-  box-shadow: 0 2px 8px rebeccapurple;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    box-shadow: 0 2px 8px rebeccapurple;
   }
 }
 
@@ -301,7 +320,8 @@ color:#444;
   text-decoration: none;
   list-style: none;
 }
-.about-section ul{
+
+.about-section ul {
   list-style: none;
   color: #444;
 }
@@ -333,13 +353,13 @@ color:#444;
     background: whitesmoke;
     margin-top: 10px;
     padding: 10px 10px;
-    &:active{
+    &:active {
       display: none;
     }
   }
-
   nav ul.show {
     display: flex;
+  
   }
 
   .home {
@@ -360,10 +380,12 @@ color:#444;
     display: block;
 
   }
-  .library{
+
+  .library {
     margin-top: 30%;
   }
-  .about{
+
+  .about {
     margin-top: 30%;
   }
 }

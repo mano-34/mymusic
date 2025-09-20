@@ -71,7 +71,7 @@ function Home({ searchTerm = "" }) {
 
   return (
     <div className="home">
-      <h3>🎶 Trending Now</h3>
+      <h3>♪ Trending Now</h3>
       <div className="song-list">
         {filteredSongs.length > 0 ? (
           filteredSongs.map((song, index) => (
@@ -95,6 +95,7 @@ function Home({ searchTerm = "" }) {
           addToLibrary={addToLibrary}
         />
       )}
+      <hr />
     </div>
   );
 }

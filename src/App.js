@@ -5,6 +5,9 @@ import Home from "./pages/Home";
 import Library from "./pages/Library";
 import About from "./pages/About";
 import "./App.css";
+import "@fontsource/poppins"; 
+import "@fontsource/poppins/700.css"; 
+
 
 
 function App() {

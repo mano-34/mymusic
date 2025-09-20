@@ -5,10 +5,14 @@ import { Music2 } from "lucide-react";
 function Navbar({ searchTerm, setSearchTerm }) {
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleLinkClick = () => {
+    setIsOpen(false); 
+  };
+
   return (
     <nav>
       <div className="logo">
-        <Link to="/">
+        <Link to="/" onClick={handleLinkClick}>
           <Music2 size={28} />
           <span>BeatBox</span>
         </Link>
@@ -29,9 +33,9 @@ function Navbar({ searchTerm, setSearchTerm }) {
       </div>
 
       <ul className={isOpen ? "show" : ""}>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/library">Library</Link></li>
-        <li><Link to="/about">About</Link></li>
+        <li><Link to="/" onClick={handleLinkClick}> 🏠︎ Home</Link></li>
+        <li><Link to="/library" onClick={handleLinkClick}>📖 Library</Link></li>
+        <li><Link to="/about" onClick={handleLinkClick}>ⓘ About</Link></li>
       </ul>
     </nav>
   );
