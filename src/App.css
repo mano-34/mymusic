@@ -229,8 +229,6 @@ nav ul li a {
   flex-wrap: wrap;
   padding: 50px;
 }
-
-
 /* player */
 
 .player {
@@ -244,6 +242,57 @@ nav ul li a {
   }
 
 }
+.timer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #333;
+  width: 100%;
+  max-width: 350px;
+  margin: 10px auto;
+}
+
+.timer span {
+  min-width: 35px;
+  text-align: center;
+  font-family: monospace;
+  color: #555;
+}
+
+/* Range bar */
+.timer input[type="range"] {
+  flex: 1;
+  -webkit-appearance: none;
+  height: 5px;
+  border-radius: 3px;
+  background: #ccc;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s linear;
+}
+
+/* Thumb */
+.timer input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: rebeccapurple;
+  cursor: pointer;
+  margin-top: -4px;
+  border: none;
+}
+
+.timer input[type="range"]::-moz-range-thumb {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: rebeccapurple;
+  cursor: pointer;
+  border: none;
+}
+
 
 .controls button {
   margin: 5px;
@@ -257,6 +306,7 @@ nav ul li a {
 
   }
 }
+/* library */
 
 .library {
   min-height: 100vh;
@@ -272,6 +322,31 @@ nav ul li a {
     text-decoration: underline;
     color: #222;
   }
+}
+.librarycontrols{
+  margin: 20px;
+  padding: 30px;
+  background: rgb(188, 158, 219);
+  border-radius: 10px;
+  text-align: center;
+  &:active {
+    box-shadow: 1px 1px 9px rebeccapurple;
+  }
+}
+.librarycontrols button{
+    margin: 5px;
+  padding: 10px;
+  font-size: 20px;
+  border: none;
+  background: rgb(188, 158, 219);
+
+  &:active {
+    color: white;
+
+  }
+}
+ .actions{
+ background: none;
 }
 
 /* about*/
