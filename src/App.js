@@ -7,12 +7,14 @@ import About from "./pages/About";
 import "./App.css";
 import "@fontsource/poppins"; 
 import "@fontsource/poppins/700.css"; 
+import Footer from "./pages/Footer";
 
 
 
 function App() {
   const[searchTerm, setSearchTerm] = useState("")
   return (
+  <div>
     <BrowserRouter>
       <Navbar  searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <div className="container">
@@ -23,6 +25,8 @@ function App() {
         </Routes>
       </div>
     </BrowserRouter>
+  <Footer/>
+  </div>
   );
 }
 

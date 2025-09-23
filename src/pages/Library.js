@@ -5,7 +5,6 @@ function Library() {
   const [currentIndex, setCurrentIndex] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
-  
 
   useEffect(() => {
     const savedLibrary = JSON.parse(localStorage.getItem("library")) || [];
@@ -22,17 +21,23 @@ function Library() {
     }
   }, [currentIndex]);
 
-  const togglePlayPause = () => {
+  const togglePlayPause = (index) => {
     if (!audioRef.current) return;
 
-    if (isPlaying) {
+    if (isPlaying && currentIndex === index) {
+      // Pause current song
       audioRef.current.pause();
       setIsPlaying(false);
     } else {
-      audioRef.current.play().catch((err) =>
-        console.log("Play prevented by browser:", err)
-      );
-      setIsPlaying(true);
+      // Play selected song
+      if (currentIndex !== index) {
+        setCurrentIndex(index); // will trigger useEffect to load new song
+      } else {
+        audioRef.current.play().catch((err) =>
+          console.log("Play prevented by browser:", err)
+        );
+        setIsPlaying(true);
+      }
     }
   };
 
@@ -72,14 +77,15 @@ function Library() {
               <p>{song.artist}</p>
 
               <div className="actions">
-                <button onClick={() => setCurrentIndex(index)}> {isPlaying ? "⏸" : "▶"}</button>
-               
+                <button onClick={() => togglePlayPause(index)}>
+                  {currentIndex === index && isPlaying ? "⏸" : "▶"}
+                </button>
+                <button onClick={() => removeSong(song.id)} className="removebtn">🛇</button>
               </div>
             </div>
           ))}
         </div>
       )}
-
 
       {currentIndex !== null && (
         <div className="librarycontrols">
@@ -87,12 +93,13 @@ function Library() {
           <p>{librarySongs[currentIndex].artist}</p>
 
           <button onClick={playPrev}>⏮</button>
-          <button onClick={togglePlayPause}>{isPlaying ? "⏸" : "▶"}</button>
+          <button onClick={() => togglePlayPause(currentIndex)}>
+            {isPlaying ? "⏸" : "▶"}
+          </button>
           <button onClick={playNext}>⏭</button>
         </div>
       )}
 
-    
       <audio ref={audioRef} controls style={{ display: "none" }} />
       <hr />
     </div>
@@ -100,4 +107,5 @@ function Library() {
 }
 
 export default Library;
+
 

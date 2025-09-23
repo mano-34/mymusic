@@ -1,7 +1,7 @@
 
 import React from "react";
 
-function About() {
+ function About() {
   return (
     <div className="about">
       <h2>ⓘ About BeatBox</h2>
@@ -29,13 +29,15 @@ function About() {
       </div>
 <hr />
       <div className="about-section">
-        <h3>📬 Contact</h3>
+        <h3>💬 Contact</h3>
         <p>
-          Email: <a href="mailto:yourname@email.com">beatbox@email.com</a> <br />
-      
+         ✉️ Email: <a href="mailto:beatboxmusic@email.com">beatbox@email.com</a> <br />
+         ☎ Mobile no: <a href ="9876543210"> 9876543210</a>
+           
         </p>
       </div>
       <hr/>
+  
     </div>
     
   );
