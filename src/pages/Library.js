@@ -102,38 +102,20 @@ function Library() {
           <h3>Now Playing: {librarySongs[currentIndex].title}</h3>
           <p>{librarySongs[currentIndex].artist}</p>
 
-          {/* Home-style timer + slider */}
-          <div className="timer">
-            <span>{formatTime(currentTime)}</span>
-            <input
-              type="range"
-              min="0"
-              max={duration || 0}
-              value={currentTime}
-              onChange={handleSeek}
-              style={{
-                background: `linear-gradient(to right, rebeccapurple ${(currentTime/duration)*100}%, white ${(currentTime/duration)*100}%)`
-              }}
-            />
-            <span>{formatTime(duration)}</span>
-          </div>
-
-          <div className="controls">
-            <button onClick={playPrev}>⏮</button>
-            <button onClick={togglePlayPause}>{isPlaying ? "⏸" : "▶"}</button>
-            <button onClick={playNext}>⏭</button>
-            <button onClick={() => removeSong(librarySongs[currentIndex].id)}>🗑</button>
-          </div>
+          <button onClick={playPrev}>⏮</button>
+          <button onClick={() => togglePlayPause(currentIndex)}>
+            {isPlaying ? "⏸" : "▶"}
+          </button>
+          <button onClick={playNext}>⏭</button>
         </div>
       )}
 
       <audio ref={audioRef} controls style={{ display: "none" }} />
-      <hr />
+ 
     </div>
   );
 }
 
 export default Library;
-
 
 

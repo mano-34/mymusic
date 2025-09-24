@@ -19,4 +19,3 @@ function SongCard({ song, index, currentIndex, isPlaying, playSong }) {
 
 export default SongCard;
 
-

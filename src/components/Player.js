@@ -98,7 +98,8 @@ function Player({ songs, currentIndex, setCurrentIndex, isPlaying, setIsPlaying,
         <span>{formatTime(duration)}</span>
       </div>
 
-      {/* 🎵 Controls */}
+
+
       <div className="controls">
         <button onClick={playPrev}>⏮</button>
         <button onClick={togglePlayPause}>{isPlaying ? "⏸" : "▶"}</button>

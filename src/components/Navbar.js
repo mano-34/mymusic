@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Music2 } from "lucide-react";
 
-function Navbar({ searchTerm, setSearchTerm }) {
+function Navbar({ searchTerm, setSearchTerm, setActiveForm }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [user, setUser] = useState(null);
 
-  const handleLinkClick = () => {
-    setIsOpen(false); 
+  useEffect(() => {
+    const loggedUser = JSON.parse(localStorage.getItem("user"));
+    setUser(loggedUser);
+  }, []);
+
+  const handleLinkClick = () => setIsOpen(false);
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setUser(null);
   };
 
   return (
@@ -33,14 +42,33 @@ function Navbar({ searchTerm, setSearchTerm }) {
       </div>
 
       <ul className={isOpen ? "show" : ""}>
-        <li><Link to="/" onClick={handleLinkClick}> 🏠︎ Home</Link></li>
+        <li><Link to="/" onClick={handleLinkClick}>🏠 Home</Link></li>
         <li><Link to="/library" onClick={handleLinkClick}>📖 Library</Link></li>
         <li><Link to="/about" onClick={handleLinkClick}>ⓘ About</Link></li>
+
+        {!user ? (
+          <>
+            <li>
+              <button onClick={() => setActiveForm("login")}>🔑 Login</button>
+            </li>
+            <li>
+              <button onClick={() => setActiveForm("signup")}>📝 Signup</button>
+            </li>
+          </>
+        ) : (
+          <>
+            <li>👋 {user.name}</li>
+            <li>
+              <button onClick={handleLogout}>🚪 Logout</button>
+            </li>
+          </>
+        )}
       </ul>
     </nav>
   );
 }
 
 export default Navbar;
+
 
 

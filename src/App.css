@@ -47,6 +47,7 @@ nav {
   left: 0;
   right: 0;
   z-index: 1000;
+  box-shadow: 1px 0px 9px #999;
 }
 
 nav ul {
@@ -140,8 +141,6 @@ nav ul li a {
 
   &:active {
     color: transparent;
-
-
   }
 }
 
@@ -149,11 +148,11 @@ nav ul li a {
 
 .home {
   padding: 70px 20px;
-  background: whitesmoke;
+  background: white;
 }
 
 .home h3 {
-  margin-top: 10px;
+  margin-top: 20px;
   text-align: center;
   color: #444;
 
@@ -312,6 +311,7 @@ nav ul li a {
   min-height: 100vh;
   margin-top: 7%;
 
+
 }
 
 .library h4 {
@@ -433,8 +433,6 @@ nav ul li a {
   color: white;
 }
 }
-<<<<<<< HEAD
-=======
 
 >>>>>>> 56d6e6a6d78afb68999a7be67520077ef48661e6
 /* mobile view*/
