@@ -323,6 +323,9 @@ nav ul li a {
     color: #222;
   }
 }
+
+
+
 .librarycontrols{
   margin: 20px;
   padding: 30px;
@@ -345,9 +348,7 @@ nav ul li a {
 
   }
 }
- .actions{
- background: none;
-}
+
 
 /* about*/
 
@@ -432,6 +433,10 @@ nav ul li a {
   color: white;
 }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 56d6e6a6d78afb68999a7be67520077ef48661e6
 /* mobile view*/
 
 @media (max-width: 768px) {
