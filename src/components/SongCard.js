@@ -1,11 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
-function SongCard({ song, playSong, }) {
-  const [isPlaying, setIsPlaying] = useState(false);
-
+function SongCard({ song, index, currentIndex, isPlaying, playSong }) {
   const handlePlay = () => {
-    playSong(song); 
-    setIsPlaying(!isPlaying); 
+    playSong(index); // tell parent which song to play
   };
 
   return (
@@ -14,11 +11,12 @@ function SongCard({ song, playSong, }) {
       <h3>{song.title}</h3>
       <p>{song.artist}</p>
       <button onClick={handlePlay}>
-        {isPlaying ? "⏸" : "▶"}
+        {currentIndex === index && isPlaying ? "⏸" : "▶"}
       </button>
     </div>
   );
 }
 
 export default SongCard;
+
 

@@ -401,6 +401,37 @@ nav ul li a {
   color: #444;
 }
 
+/* footer*/
+
+.footer {
+  background: rgb(210, 191, 230);;
+  color: #222;
+  text-align: center;
+  padding: 15px 20px;
+  margin-top: 30px;
+}
+
+.footer p {
+  margin: 5px 0;
+  font-size: 14px;
+ 
+}
+
+.social-icons {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.social-icons a {
+  color: #222;
+  font-size: 22px;
+  transition: color 0.3s ease;
+&:hover {
+  color: white;
+}
+}
 /* mobile view*/
 
 @media (max-width: 768px) {

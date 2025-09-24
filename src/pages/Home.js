@@ -47,19 +47,28 @@ function Home({ searchTerm = "" }) {
     { id: 12, title: "Madharasi", artist: "AR.Rahman", url: madharasi, cover: madharasiImg },
   ]);
 
+  
   const [currentIndex, setCurrentIndex] = useState(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
-   const filteredSongs = songs.filter(
+  const filteredSongs = songs.filter(
     (song) =>
       song.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       song.artist.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const playSong = (index) => setCurrentIndex(index);
+  const playSong = (index) => {
+    if (currentIndex === index) {
+      // if same song, toggle play/pause
+      setIsPlaying(!isPlaying);
+    } else {
+      setCurrentIndex(index);
+      setIsPlaying(true);
+    }
+  };
 
   const addToLibrary = (song) => {
     let library = JSON.parse(localStorage.getItem("library")) || [];
-
     if (!library.find((item) => item.id === song.id)) {
       library.push(song);
       localStorage.setItem("library", JSON.stringify(library));
@@ -78,8 +87,10 @@ function Home({ searchTerm = "" }) {
             <SongCard
               key={song.id}
               song={song}
-              playSong={() => setCurrentIndex(index)}
-              addToLibrary={addToLibrary}
+              index={index}
+              currentIndex={currentIndex}
+              isPlaying={isPlaying}
+              playSong={playSong}
             />
           ))
         ) : (
@@ -92,13 +103,15 @@ function Home({ searchTerm = "" }) {
           songs={filteredSongs}
           currentIndex={currentIndex}
           setCurrentIndex={setCurrentIndex}
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
           addToLibrary={addToLibrary}
         />
       )}
-      <hr />
     </div>
   );
 }
 
 export default Home;
+
 
