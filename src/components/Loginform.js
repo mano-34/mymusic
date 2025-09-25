@@ -1,7 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function Loginform({ activeForm, setActiveForm }) {
   const [formData, setFormData] = useState({ email: "", password: "" });
+  const [mode, setMode] = useState("login");
+
+
+  useEffect(() => {
+    if (activeForm) {
+      setMode("login");
+    }
+  }, [activeForm]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -9,21 +17,48 @@ function Loginform({ activeForm, setActiveForm }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (activeForm === "login") {
+    if (mode === "login") {
       console.log("Logging in:", formData);
-      localStorage.setItem("user", JSON.stringify({ name: "User", email: formData.email }));
+      localStorage.setItem(
+        "user",
+        JSON.stringify({ name: "User", email: formData.email })
+      );
     } else {
       console.log("Signing up:", formData);
-      localStorage.setItem("user", JSON.stringify({ name: "User", email: formData.email }));
+      localStorage.setItem(
+        "user",
+        JSON.stringify({ name: "User", email: formData.email })
+      );
     }
     setActiveForm(null); 
+    window.location.reload(); 
   };
 
   return (
     <div className="modal">
       <div className="modal-content">
-        <button className="close" onClick={() => setActiveForm(null)}>✖</button>
-        <h2>{activeForm === "login" ? "Login" : "Signup"}</h2>
+        <button className="close" onClick={() => setActiveForm(null)}>
+          ✖
+        </button>
+
+      
+        <div className="tabs">
+          <button
+            className={mode === "login" ? "active" : ""}
+            onClick={() => setMode("login")}
+          >
+            Login
+          </button>
+          <button
+            className={mode === "signup" ? "active" : ""}
+            onClick={() => setMode("signup")}
+          >
+            Signup
+          </button>
+        </div>
+
+        <h2>{mode === "login" ? "Login" : "Signup"}</h2>
+
         <form onSubmit={handleSubmit}>
           <input
             type="email"
@@ -40,7 +75,7 @@ function Loginform({ activeForm, setActiveForm }) {
             required
           />
           <button type="submit">
-            {activeForm === "login" ? "Login" : "Signup"}
+            {mode === "login" ? "Login" : "Signup"}
           </button>
         </form>
       </div>
@@ -49,3 +84,4 @@ function Loginform({ activeForm, setActiveForm }) {
 }
 
 export default Loginform;
+

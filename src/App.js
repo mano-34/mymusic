@@ -5,14 +5,14 @@ import Home from "./pages/Home";
 import Library from "./pages/Library";
 import About from "./pages/About";
 import Footer from "./pages/Footer";
-import AuthForms from "./components/Loginform"; 
+import Loginform from "./components/Loginform"; 
 import "./App.css";
 import "@fontsource/poppins";
 import "@fontsource/poppins/700.css";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [activeForm, setActiveForm] = useState(null); 
+  const [activeForm, setActiveForm] = useState(null);
 
   return (
     <div>
@@ -32,9 +32,8 @@ function App() {
         </div>
       </BrowserRouter>
 
-     
       {activeForm && (
-        <AuthForms activeForm={activeForm} setActiveForm={setActiveForm} />
+        <Loginform activeForm={activeForm} setActiveForm={setActiveForm} />
       )}
 
       <Footer />
@@ -43,3 +42,4 @@ function App() {
 }
 
 export default App;
+

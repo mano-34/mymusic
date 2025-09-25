@@ -16,6 +16,7 @@ function Navbar({ searchTerm, setSearchTerm, setActiveForm }) {
   const handleLogout = () => {
     localStorage.removeItem("user");
     setUser(null);
+    window.location.reload();
   };
 
   return (
@@ -42,22 +43,22 @@ function Navbar({ searchTerm, setSearchTerm, setActiveForm }) {
       </div>
 
       <ul className={isOpen ? "show" : ""}>
-        <li><Link to="/" onClick={handleLinkClick}>🏠 Home</Link></li>
+        <li><Link to="/" onClick={handleLinkClick}>🏠︎ Home</Link></li>
         <li><Link to="/library" onClick={handleLinkClick}>📖 Library</Link></li>
         <li><Link to="/about" onClick={handleLinkClick}>ⓘ About</Link></li>
 
         {!user ? (
-          <>
-            <li>
-              <button onClick={() => setActiveForm("login")}>🔑 Login</button>
-            </li>
-            <li>
-              <button onClick={() => setActiveForm("signup")}>📝 Signup</button>
-            </li>
-          </>
+          <li>
+            <button
+              className="auth-btn"
+              onClick={() => setActiveForm("auth")}
+            >
+              Login/Signup
+            </button>
+          </li>
         ) : (
           <>
-            <li>👋 {user.name}</li>
+            <li>{user.name}</li>
             <li>
               <button onClick={handleLogout}>🚪 Logout</button>
             </li>

@@ -2,7 +2,7 @@ import React from "react";
 
 function SongCard({ song, index, currentIndex, isPlaying, playSong }) {
   const handlePlay = () => {
-    playSong(index); // tell parent which song to play
+    playSong(index); 
   };
 
   return (

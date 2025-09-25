@@ -34,7 +34,7 @@ hr {
 }
 
 
-/* navbar*/
+/* Navbar */
 nav {
   background-color: whitesmoke;
   padding: 15px 30px;
@@ -63,14 +63,32 @@ nav ul li a {
   font-weight: 600;
   color: #555;
   transition: color 0.3s ease;
-
-  &:hover {
-    color: #222;
-    text-decoration: underline;
-  }
 }
 
+nav ul li a:hover {
+  color: #222;
+  text-decoration: underline;
+}
 
+/* Login/Signup Button */
+nav .auth-btn {
+  background: none;
+  color: #555;
+  padding: 0px 1px;
+  border-radius: 20px;
+  font-weight: 900;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+nav .auth-btn:hover {
+  color: #222;
+  text-decoration: underline;
+
+}
+
+/* Logo */
 .logo a {
   display: flex;
   align-items: center;
@@ -80,13 +98,14 @@ nav ul li a {
   font-size: 20px;
   font-weight: bold;
   font-style: italic;
-
-  &:hover {
-    color: #222;
-    text-decoration: underline;
-  }
 }
 
+.logo a:hover {
+  color: #222;
+  text-decoration: underline;
+}
+
+/* Search Bar */
 .search-bar {
   flex: 1;
   max-width: 400px;
@@ -96,11 +115,11 @@ nav ul li a {
   border-radius: 20px;
   overflow: hidden;
   transition: all 0.3s ease;
+}
 
-  &:hover {
-    background: #fff;
-    box-shadow: 0px 1px 5px #999;
-  }
+.search-bar:hover {
+  background: #fff;
+  box-shadow: 0px 1px 5px #999;
 }
 
 .search-bar input {
@@ -131,6 +150,7 @@ nav ul li a {
   border: none;
 }
 
+/* Mobile Menu Toggle */
 .menu-toggle {
   display: none;
   font-size: 20px;
@@ -138,10 +158,10 @@ nav ul li a {
   color: #111;
   margin-left: 90%;
   margin-top: -40px;
+}
 
-  &:active {
-    color: transparent;
-  }
+.menu-toggle:active {
+  color: transparent;
 }
 
 /* song list home */
@@ -434,7 +454,97 @@ nav ul li a {
 }
 }
 
->>>>>>> 56d6e6a6d78afb68999a7be67520077ef48661e6
+/* loginform*/
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+   
+.modal-content {
+  background: whitesmoke;
+  padding: 20px 30px;
+  border-radius: 20px;
+  width: 350px;
+  max-width: 90%;
+  position: relative;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  &:active{
+    color: white;
+  }
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
+  width: 50%;
+  margin-left: 25%;
+}
+
+.tabs button {
+  flex: 1;
+  width: 20%;
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+  background: #eee;
+  border-radius: 22px;
+  transition: 0.3s;
+&.active {
+  background: rebeccapurple;
+  color: white;
+}
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+form button {
+  width: 23%;
+  padding: 10px;
+  background: rebeccapurple;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+form button:active {
+  background: white;
+  color: #222;
+}
+
+
 /* mobile view*/
 
 @media (max-width: 768px) {
