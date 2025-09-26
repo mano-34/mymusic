@@ -57,7 +57,16 @@ function Home({ searchTerm = "" }) {
       song.artist.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const playSong = (index) => setCurrentIndex(index);
+  const playSong = (index) => {
+  if (currentIndex === index) {
+  
+    setIsPlaying((prev) => !prev);
+  } else {
+   
+    setCurrentIndex(index);
+    setIsPlaying(true);
+  }
+};
 
   const addToLibrary = (song) => {
     let library = JSON.parse(localStorage.getItem("library")) || [];

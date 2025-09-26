@@ -264,53 +264,66 @@ nav .auth-btn:hover {
 .timer {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 13px;
+  justify-content: center;
+  gap: 10px;
+  font-family: "Poppins", sans-serif;
   color: #333;
-  width: 100%;
-  max-width: 350px;
-  margin: 10px auto;
 }
 
-.timer span {
-  min-width: 35px;
-  text-align: center;
-  font-family: monospace;
-  color: #555;
-}
-
-/* Range bar */
+/* Base range input */
 .timer input[type="range"] {
-  flex: 1;
   -webkit-appearance: none;
-  height: 5px;
-  border-radius: 3px;
-  background: #ccc;
-  outline: none;
+  appearance: none;
+  width: 30%;
+  height: 6px;
+  border-radius: 5px;
+  background: #ddd; 
   cursor: pointer;
-  transition: background 0.2s linear;
+  outline: none;
+  margin: 0 10px;
 }
 
-/* Thumb */
+
 .timer input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  height: 12px;
-  width: 12px;
+  appearance: none;
+  height: 14px;
+  width: 14px;
   border-radius: 50%;
   background: rebeccapurple;
   cursor: pointer;
-  margin-top: -4px;
-  border: none;
+  border: 2px solid white;
+  box-shadow: 0 0 2px rgba(0,0,0,0.3);
+  transition: 0.2s;
 }
 
+.timer input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+/* Firefox thumb */
 .timer input[type="range"]::-moz-range-thumb {
-  height: 12px;
-  width: 12px;
+  height: 14px;
+  width: 14px;
   border-radius: 50%;
   background: rebeccapurple;
   cursor: pointer;
-  border: none;
+  border: 2px solid white;
+  box-shadow: 0 0 2px rgba(0,0,0,0.3);
+  transition: 0.2s;
 }
+
+.timer input[type="range"]::-moz-range-thumb:hover {
+  transform: scale(1.2);
+}
+
+/* Firefox track */
+.timer input[type="range"]::-moz-range-track {
+  height: 6px;
+  border-radius: 5px;
+  background: #ddd;
+}
+
 
 
 .controls button {
@@ -472,7 +485,7 @@ nav .auth-btn:hover {
    
 .modal-content {
   background: whitesmoke;
-  padding: 20px 30px;
+  padding: 40px 30px;
   border-radius: 20px;
   width: 350px;
   max-width: 90%;
@@ -519,16 +532,18 @@ nav .auth-btn:hover {
 }
 
 form input {
-  width: 100%;
+  width: 80%;
   padding: 10px;
   margin: 8px 0;
   border: none;
   border-radius: 20px;
   font-size: 14px;
+  
 }
 
 form button {
   width: 23%;
+  margin-top: 20px;
   padding: 10px;
   background: rebeccapurple;
   color: white;
@@ -537,13 +552,16 @@ form button {
   font-size: 16px;
   cursor: pointer;
   transition: 0.3s;
+  &:hover{
+    color: black;
+    background: rgb(145, 107, 185);
+  }
 }
 
-form button:active {
+form button:active{
   background: white;
   color: #222;
 }
-
 
 /* mobile view*/
 
