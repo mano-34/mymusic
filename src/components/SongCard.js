@@ -2,7 +2,7 @@ import React from "react";
 
 function SongCard({ song, index, currentIndex, isPlaying, playSong }) {
   const handlePlay = () => {
-    playSong(index); 
+    playSong(index);
   };
 
   return (
@@ -13,6 +13,7 @@ function SongCard({ song, index, currentIndex, isPlaying, playSong }) {
       <button onClick={handlePlay}>
         {currentIndex === index && isPlaying ? "⏸" : "▶"}
       </button>
+
     </div>
   );
 }
